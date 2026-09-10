@@ -22,3 +22,4 @@ Les tables `User` et `Payment` doivent exister. Elles ont déjà été créées 
 
 ## Important
 Le code ne crédite jamais un solde simplement parce qu'un navigateur dit qu'un paiement est réussi. Le crédit doit être confirmé par la notification serveur du prestataire de paiement.
+Mise à jour du projet
