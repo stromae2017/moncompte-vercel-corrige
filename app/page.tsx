@@ -19,5 +19,13 @@ export default function Home() {
   {mode==="register"&&<div className="field"><label>Nom / pseudo</label><input value={name} onChange={e=>setName(e.target.value)} required /></div>}
   <div className="field"><label>Numéro de téléphone</label><input value={phone} onChange={e=>setPhone(e.target.value)} placeholder="+225..." required /></div>
   <div className="field"><label>Mot de passe</label><input type="password" value={password} onChange={e=>setPassword(e.target.value)} minLength={6} required /></div>
+    {mode === "login" && (
+  <button
+    type="button"
+    onClick={() => router.push("/forgot-password")}
+  >
+    Mot de passe oublié ?
+  </button>
+)}
   <button className="primary" disabled={loading}>{loading?"Patiente...":mode==="register"?"Créer mon compte":"Se connecter"}</button><div className="small">Les clés de paiement restent côté serveur.</div></form></main></>;
 }
