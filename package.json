@@ -20,9 +20,8 @@
     "@types/node": "24.3.1",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "paydunya": "^1.0.0"
     "prisma": "6.16.2",
     "typescript": "5.9.2"
   }
 }
-
-npm install paydunya
