@@ -1,4 +1,12 @@
-  if (!userId) {
+import { NextResponse } from "next/server";
+import { db } from "@/lib/db";
+import { getUserId } from "@/lib/auth";
+
+export async function POST(req: Request) {
+  try {
+    const userId = await getUserId();
+
+    if (!userId) {
       return NextResponse.json(
         { error: "Connecte-toi avant de recharger." },
         { status: 401 }
@@ -71,11 +79,19 @@
 
     const data = await paydunyaResponse.json();
 
-    if (!paydunyaResponse.ok || data.response_code !== "00" || !data.response_text) {
+    if (
+      !paydunyaResponse.ok ||
+      data.response_code !== "00" ||
+      !data.response_text
+    ) {
       console.error("PAYDUNYA_CREATE_ERROR", data);
 
       return NextResponse.json(
-        { error: data.response_text || "Impossible de créer la facture PayDunya." },
+        {
+          error:
+            data.response_text ||
+            "Impossible de créer la facture PayDunya.",
+        },
         { status: 502 }
       );
     }
